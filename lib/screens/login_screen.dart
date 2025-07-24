@@ -1,11 +1,12 @@
+import 'package:chocobuy/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
-class LoginScrenn extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScrenn> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context);
@@ -116,7 +117,9 @@ class _LoginScreenState extends State<LoginScrenn> {
                                               ),
                                             ),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){},
+                                            ElevatedButton(onPressed: (){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                                            },
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(
                                                   child:
@@ -136,7 +139,9 @@ class _LoginScreenState extends State<LoginScrenn> {
                                             SizedBox(height: 12,),
                                             PassWordField(label: 'Confirm password'),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){},
+                                            ElevatedButton(onPressed: (){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                                            },
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(child: Text('Sign Up', style: TextStyle(color: Colors.white),),))
 

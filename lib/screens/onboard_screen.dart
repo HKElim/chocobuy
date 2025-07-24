@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
-import 'package:chocobuy/screens/login_screnn.dart';
+import 'package:chocobuy/screens/login_screen.dart';
 import 'dart:async';
 
 import '../main.dart';
@@ -19,7 +19,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) =>  LoginScrenn()),
+        MaterialPageRoute(builder: (context) =>  LoginScreen()),
       );
     });
   }

@@ -1,3 +1,4 @@
+import 'package:chocobuy/screens/your_order.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/screens/drink_menu.dart';
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     HomeContent(),
     DrinkMenu(),
-    Center(child: Text("Your Order")),
+    YourOrder(),
     Center(child: Text("Favorites")),
   ];
 

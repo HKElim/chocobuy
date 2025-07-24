@@ -1,4 +1,3 @@
-import 'package:chocobuy/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
 class LoginScreen extends StatefulWidget {
@@ -117,9 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                                            },
+                                            ElevatedButton(onPressed: (){},
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(
                                                   child:
@@ -139,9 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             SizedBox(height: 12,),
                                             PassWordField(label: 'Confirm password'),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){
-                                              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
-                                            },
+                                            ElevatedButton(onPressed: (){},
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(child: Text('Sign Up', style: TextStyle(color: Colors.white),),))
 

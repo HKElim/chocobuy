@@ -15,7 +15,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   void initState() {
     super.initState();
 
-    // Wait 7 seconds then navigate to home
+    // Wait 3 seconds then navigate to home
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,

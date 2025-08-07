@@ -1,3 +1,4 @@
+import 'package:chocobuy/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
 class LoginScreen extends StatefulWidget {
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
             width: double.infinity,
             decoration: BoxDecoration(
                 image: DecorationImage(image: AssetImage('./assets/images/background.jpg'), fit: BoxFit.cover, colorFilter: ColorFilter.mode(
-                  Colors.brown.withOpacity(0.3), // adjust opacity and color
+                  Colors.black.withOpacity(0.3), // adjust opacity and color
                   BlendMode.darken, // can also use overlay, multiply, etc.
                 ),),
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(100), bottomRight: Radius.circular(100),)
@@ -116,7 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                               ),
                                             ),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){},
+                                            ElevatedButton(onPressed: (){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
+                                            },
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(
                                                   child:
@@ -136,7 +139,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                             SizedBox(height: 12,),
                                             PassWordField(label: 'Confirm password'),
                                             SizedBox(height: 40,),
-                                            ElevatedButton(onPressed: (){},
+                                            ElevatedButton(onPressed: (){
+                                              Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
+                                            },
                                                 style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF834D1E)),
                                                 child: Center(child: Text('Sign Up', style: TextStyle(color: Colors.white),),))
 

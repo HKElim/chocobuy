@@ -22,7 +22,7 @@ class OrderCard extends StatelessWidget {
                       height: 120,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: chocolate),
+                        border: Border.all(color: textColor),
                         color: beigeWhite
                       ),
                       child: Row(
@@ -44,13 +44,13 @@ class OrderCard extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Text(quantity.toString() + "x", style: TextStyle(fontSize: 15, color: chocolate),),
+                                  Text(quantity.toString() + "x", style: TextStyle(fontSize: 15, color: textColor),),
                                   SizedBox(width: 10,),
-                                  Text(orderName, style: TextStyle(color: chocolate, fontSize: 18, fontWeight: FontWeight.bold),)
+                                  Text(orderName, style: TextStyle(color: textColor, fontSize: 18, fontWeight: FontWeight.bold),)
                                 ],
                               ),
                               TextButton(onPressed: (){}, 
-                              child: Text("Details", style: TextStyle(color: chocolate, fontSize: 15, fontWeight: FontWeight.bold),))
+                              child: Text("Details", style: TextStyle(color: textColor, fontSize: 15, fontWeight: FontWeight.bold),))
                             ],
                           ),),
                           Padding(

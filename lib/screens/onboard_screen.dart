@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
 import 'package:chocobuy/screens/login_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 
 import '../main.dart';
@@ -34,8 +35,8 @@ class _OnboardScreenState extends State<OnboardScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("co/choc", style: TextStyle(fontSize: 32, color: Colors.black, fontWeight: FontWeight.bold),),
-              Text("A way to enjoy bitter and sweet of life", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+              Text("co/choc", style: TextStyle(fontSize: 32.sp, color: Colors.black, fontWeight: FontWeight.bold),),
+              Text("A way to enjoy bitter and sweet of life", style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),)
             ],
           ),
         )

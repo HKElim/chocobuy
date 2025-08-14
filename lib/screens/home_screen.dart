@@ -1,7 +1,11 @@
+import 'package:chocobuy/constants/colors.dart';
+import 'package:chocobuy/screens/favorite_screen.dart';
 import 'package:chocobuy/screens/your_order.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/screens/drink_menu.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeContent(),
     DrinkMenu(),
     YourOrder(),
-    Center(child: Text("Favorites")),
+    FavoriteScreen(),
   ];
 
   @override
@@ -29,23 +33,40 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // Helper method to create SVG navigation items
+  Widget _buildSvgIcon(String assetPath, int index) {
+    return SvgPicture.asset(
+      assetPath,
+      height: 27.h,
+      width: 27.w,
+      colorFilter: ColorFilter.mode(
+        _selectedIndex == index ? Colors.white : Colors.brown[300]!,
+        BlendMode.srcIn,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF8E3B6),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xFF834D1E),
+        backgroundColor: textColor,
         currentIndex: _selectedIndex,
         unselectedItemColor: Colors.brown[300],
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.coffee_outlined), label: 'Drink Menu'),
-          BottomNavigationBarItem(icon: Icon(Icons.list_alt_rounded), label: 'Your Order'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite_border), label: 'Favorites')
+        items: [
+          BottomNavigationBarItem(
+            icon: _buildSvgIcon("assets/icons/home.svg", 0),
+            label: 'Home'),
+          BottomNavigationBarItem(icon: _buildSvgIcon("assets/icons/drink_menu.svg", 1), 
+          label: 'Drink Menu'),
+          BottomNavigationBarItem(icon: _buildSvgIcon("assets/icons/order.svg", 2), 
+          label: 'Your Order'),
+          BottomNavigationBarItem(icon: _selectedIndex == 3? Icon(Icons.favorite_sharp) : Icon(Icons.favorite_border), label: 'Favorites')
         ],
       ),
     );
@@ -57,11 +78,11 @@ class HomeContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(30.r),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             // Header Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +108,7 @@ class HomeContent extends StatelessWidget {
                             context: context,
                             color: Color(0xFFF8E3B6),
                             shadowColor: Colors.black,
-                            position: RelativeRect.fromLTRB(100, 100, 0, 0),
+                            position: RelativeRect.fromLTRB(100.r, 100.r, 0.r, 0.r),
                             items: [
                               PopupMenuItem(child: Icon(CupertinoIcons.profile_circled, color: Color(0xFF834D1E), ), value: "Profile",),
                               PopupMenuItem(child: Icon(CupertinoIcons.settings, color: Color(0xFF834D1E),), value: "Settings",),
@@ -103,13 +124,13 @@ class HomeContent extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             // Best Seller Container
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(20.r),
               decoration: BoxDecoration(
                 color: Color(0xFF834D1E),
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(30.r),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,21 +142,21 @@ class HomeContent extends StatelessWidget {
                         Text(
                           "Best seller of the week",
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         Text(
                           "Iced Coffee\nSweet Heaven",
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sp,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(height: 30),
+                        SizedBox(height: 30.h),
                         Row(
                           children: [
                             Text(
@@ -152,10 +173,10 @@ class HomeContent extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 122,
-                    width: 81,
+                    height: 122.h,
+                    width: 81.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(16.0.r),
                       image: DecorationImage(
                         image: AssetImage("assets/images/iced_coffee.png"),
                         fit: BoxFit.cover,
@@ -165,7 +186,7 @@ class HomeContent extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 40.h),
             // Recommendations Header
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +194,7 @@ class HomeContent extends StatelessWidget {
                 Text(
                   "This week's recommendations",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF834D1E),
                   ),
@@ -184,16 +205,16 @@ class HomeContent extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             // Horizontal ListView with proper height
             Container(
-              height: 200,
+              height: 200.h,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(right: 16),
+                    padding: EdgeInsets.only(right: 16.w),
                     child: CoffeeCard(
                       imagePath: "assets/images/iced_americano.png",
                       title: index == 0 ? "Iced Americano" : "Hot cappucino ${index + 1}",
@@ -203,32 +224,32 @@ class HomeContent extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 30.h,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "What's in the shop ?",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF834D1E),
                   ),
                 )
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 30.h,),
             Container(
-              height: 321,
+              height: 321.h,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(30.r),
                 image: DecorationImage(
                     image: AssetImage("assets/images/new.jpg"), fit: BoxFit.fitHeight),
               ),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(30.r),
                     gradient: LinearGradient(colors: [
                       Colors.yellowAccent.withOpacity(0.3),
                       Colors.greenAccent.withOpacity(0.4),
@@ -242,8 +263,8 @@ class HomeContent extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(padding: EdgeInsets.all(40),
-                      child:Text("Introducing\nour new lemonade\nmenu", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20, letterSpacing: -1),)
+                    Padding(padding: EdgeInsets.all(40.r),
+                      child:Text("Introducing\nour new lemonade\nmenu", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.sp, letterSpacing: -1),)
                       ,)
                   ],
                 ),
@@ -272,10 +293,10 @@ class CoffeeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 280,
-      width: 162,
+      height: 280.h,
+      width: 162.w,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         image: DecorationImage(
           image: AssetImage(imagePath),
           fit: BoxFit.cover,
@@ -283,7 +304,7 @@ class CoffeeCard extends StatelessWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -291,10 +312,10 @@ class CoffeeCard extends StatelessWidget {
               Colors.transparent,
               Color(0xFF834D1E).withOpacity(1),
             ],
-            stops: const [0.5, 1.0],
+            stops:  [0.5.r, 1.0.r],
           ),
         ),
-        padding: const EdgeInsets.all(16),
+        padding:  EdgeInsets.all(16.r),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -303,16 +324,16 @@ class CoffeeCard extends StatelessWidget {
               title,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Text(
               price,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),

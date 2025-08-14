@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chocobuy/widgets/input_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class DrinkMenu extends StatefulWidget {
@@ -19,7 +20,7 @@ class _DrinkMenuState extends State<DrinkMenu> {
     return Scaffold(
       backgroundColor: Color(0xFFF8E3B6),
       body: Padding(
-        padding: EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 50),
+        padding: EdgeInsets.only(left: 30.w, right: 30.w, bottom: 30.h, top: 50.h),
         child: Column(
           children: [
             // Header Row
@@ -30,7 +31,7 @@ class _DrinkMenuState extends State<DrinkMenu> {
                   child: Text(
                     "What would you\nlike to drink today?",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       color: Color(0xFF834D1E),
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,7 +49,7 @@ class _DrinkMenuState extends State<DrinkMenu> {
                           context: context,
                           color: Color(0xFFF8E3B6),
                           shadowColor: Colors.black,
-                          position: RelativeRect.fromLTRB(100, 100, 0, 0),
+                          position: RelativeRect.fromLTRB(100.r, 100.r, 0.r, 0.r),
                           items: [
                             PopupMenuItem(
                               child: Icon(CupertinoIcons.profile_circled, color: Color(0xFF834D1E)),
@@ -76,28 +77,28 @@ class _DrinkMenuState extends State<DrinkMenu> {
               ],
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
 
             // Search Field
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.brown),
                 color: Color(0xFFFCF2D9),
-                borderRadius: BorderRadius.circular(23),
+                borderRadius: BorderRadius.circular(23.r),
               ),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search...",
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(23),
+                    borderRadius: BorderRadius.circular(23.r),
                     borderSide: BorderSide.none,
                   ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
                 ),
               ),
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
 
             // Tab Controller
             Expanded(
@@ -107,16 +108,16 @@ class _DrinkMenuState extends State<DrinkMenu> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.brown, width: 2),
-                        borderRadius: BorderRadius.circular(13),
+                        border: Border.all(color: Colors.brown, width: 2.w),
+                        borderRadius: BorderRadius.circular(13.r),
                       ),
                       child: TabBar(
                         labelColor: Colors.white,
                         unselectedLabelColor: Color(0xFF834D1E),
-                        indicatorPadding: EdgeInsets.only(top: -0.4, left: -39, right: -40, bottom: -2),
+                        indicatorPadding: EdgeInsets.only(top: -0.4.h, left: -39.w, right: -40.w, bottom: -2.h),
                         indicator: BoxDecoration(
                           color: Color(0xFF834D1E),
-                          borderRadius: BorderRadius.circular(11),
+                          borderRadius: BorderRadius.circular(11.r),
                         ),
                         tabs: [
                           Tab(child: Text("Coffee", style: TextStyle(fontWeight: FontWeight.bold))),
@@ -126,20 +127,20 @@ class _DrinkMenuState extends State<DrinkMenu> {
                       ),
                     ),
 
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
 
                     // Tab Content
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
                           color: Color(0xFFFCF2D9),
-                          borderRadius: BorderRadius.circular(13),
+                          borderRadius: BorderRadius.circular(13.r),
                         ),
                         child: TabBarView(
                           children: [
                             // Coffee Tab
                             SingleChildScrollView(
-                              padding: EdgeInsets.all(16),
+                              padding: EdgeInsets.all(16.r),
                               child: Column(
                                 children: [
                                   DrinkCard(
@@ -148,21 +149,21 @@ class _DrinkMenuState extends State<DrinkMenu> {
                                     price: "20000",
                                     image: "assets/images/iced_americano.png",
                                   ),
-                                  SizedBox(height: 16),
+                                  SizedBox(height: 16.h),
                                   DrinkCard(
                                     title: "Iced Coffee\nSweet Heaven",
                                     desc: "Double espresso with\ncondensed milk, served cold",
                                     price: "25000",
                                     image: "assets/images/iced_coffee.png",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Hot Capuccino",
                                     desc: "Double espresso with\ncondensed milk, served hot",
                                     price: "25000",
                                     image: "assets/images/hot_cappucino.jpg",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Cappucino",
                                     desc: "Double espresso with\ncondensed milk, served cold",
@@ -175,7 +176,7 @@ class _DrinkMenuState extends State<DrinkMenu> {
 
                             // Chocolate Tab
                             SingleChildScrollView(
-                              padding: EdgeInsets.all(16),
+                              padding: EdgeInsets.all(16.r),
                               child: Column(
                                 children: [
                                   DrinkCard(
@@ -184,14 +185,14 @@ class _DrinkMenuState extends State<DrinkMenu> {
                                     price: "20000",
                                     image: "assets/images/hot_chocolate.png",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Chocolate",
                                     desc: "Sweetened dark chocolate,\nserved cold with whipped\ncream and stick wafer",
                                     price: "22000",
                                     image: "assets/images/iced_chocolate.jpg",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Yin & Yang",
                                     desc: "Dark chocolate and\nevaporated milk, served cold",
@@ -204,7 +205,7 @@ class _DrinkMenuState extends State<DrinkMenu> {
 
                             // Others Tab
                             SingleChildScrollView(
-                              padding: EdgeInsets.all(16),
+                              padding: EdgeInsets.all(16.h),
                               child: Column(
                                 children: [
                                   DrinkCard(
@@ -213,21 +214,21 @@ class _DrinkMenuState extends State<DrinkMenu> {
                                     price: "15000",
                                     image: "assets/images/green_tea.jpg",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Americano",
                                     desc: "Double espresso and water,\nserved cold",
                                     price: "18000",
                                     image: "assets/images/iced_lemonade.jpg",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Strawberry\nLemonade",
                                     desc: "Iced lemonade with fresh\nstrawberry juice, served cold",
                                     price: "18500",
                                     image: "assets/images/iced_stawberry.jpg",
                                   ),
-                                  SizedBox(height: 16,),
+                                  SizedBox(height: 16.h,),
                                   DrinkCard(
                                     title: "Iced Orange\nLemonade",
                                     desc: "Iced lemonade with fresh\norange juice, served cold",

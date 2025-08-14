@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 
 import '../main.dart';
-
 class OnboardScreen extends StatefulWidget {
   @override
   _OnboardScreenState createState() => _OnboardScreenState();

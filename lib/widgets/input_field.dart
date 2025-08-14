@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InputField extends StatelessWidget {
   const InputField({super.key, required this.label, });
@@ -13,7 +14,7 @@ class InputField extends StatelessWidget {
         fillColor: Color(0xFFFCF2D9),
         filled: false,
         hintText: label,
-        contentPadding: const EdgeInsets.only(left: 20),
+        contentPadding: EdgeInsets.only(left: 20.w),
       ),
     );
   }
@@ -34,7 +35,7 @@ class PassWordField extends StatelessWidget {
         fillColor: Color(0xFFFCF2D9),
         filled: false,
         hintText: label,
-        contentPadding: const EdgeInsets.only(left: 20),
+        contentPadding: EdgeInsets.only(left: 20.w),
       ),
     );
   }
@@ -56,12 +57,12 @@ class DrinkCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: 130,
-            width: 81,
+            height: 130.h,
+            width: 81.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.cover),
-                borderRadius: BorderRadius.circular(13)
+                borderRadius: BorderRadius.circular(13.r)
             ),
           ),
           Column(
@@ -69,13 +70,13 @@ class DrinkCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.brown),),
-              SizedBox(height: 10,),
+              SizedBox(height: 10.h,),
               Text(desc, style: TextStyle(letterSpacing: -0.5, color: Colors.brown),),
-              SizedBox(height: 10,),
+              SizedBox(height: 10.h,),
               Text("Rp " + price, style: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),),
             ],
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.add_box_rounded, color: Colors.brown, size: 36,))
+          IconButton(onPressed: (){}, icon: Icon(Icons.add_box_rounded, color: Colors.brown, size: 36.r,))
         ],
       ),
     );
